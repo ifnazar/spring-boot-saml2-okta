@@ -93,11 +93,16 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<jvmArguments>
+						-Xdebug
+						-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
+					</jvmArguments>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.3.0</version>
 			</plugin>
 		</plugins>
 	</build>

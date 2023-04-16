@@ -10,7 +10,8 @@ spring:
         registration:
           okta:
             assertingparty:
-              metadata-uri: "https://dev-43510665.okta.com/app/exk8sqg9hok8oOkJf5d7/sso/saml/metadata"
+              metadata-uri: "https://dev-43510665.okta.com/app/exk94qn95xSuWCczc5d7/sso/saml/metadata"
+            entityID: "my-sp-entity-id"
             signing:
               credentials:
                 - private-key-location: classpath:local.key
@@ -18,3 +19,9 @@ spring:
             singlelogout:
               binding: POST
               response-url: "{baseUrl}/logout/saml2/slo"
+
+#################
+#
+# Note: in the Okta Settings, "SP Entity ID" and "SP Issuer" need have the same value
+#
+#################

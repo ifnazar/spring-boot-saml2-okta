@@ -1,3 +1,8 @@
+logging:
+  level:
+    root: DEBUG
+    org.apache: INFO
+
 spring:
   security:
     saml2:

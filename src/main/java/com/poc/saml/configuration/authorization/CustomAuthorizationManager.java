@@ -1,4 +1,4 @@
-package com.poc.saml;
+package com.poc.saml.configuration.authorization;
 
 import java.util.function.Supplier;
 

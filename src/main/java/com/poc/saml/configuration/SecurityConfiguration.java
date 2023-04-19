@@ -41,6 +41,7 @@ public class SecurityConfiguration {
 		Customizer<AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry> authorizeHttpRequestsCustomizer = authorize -> {
 			authorize
 				.antMatchers("/*").authenticated()
+				.antMatchers("/foo/coffee").permitAll()
 				.anyRequest().access(authorizationManager());
 		};
 		http

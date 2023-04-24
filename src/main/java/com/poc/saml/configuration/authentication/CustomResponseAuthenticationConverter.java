@@ -1,4 +1,4 @@
-package com.poc.saml.configuration.converter;
+package com.poc.saml.configuration.authentication;
 
 import java.util.HashSet;
 import java.util.List;
@@ -12,13 +12,12 @@ import org.springframework.security.saml2.provider.service.authentication.Saml2A
 import org.springframework.security.saml2.provider.service.authentication.OpenSaml4AuthenticationProvider.ResponseToken;
 import org.springframework.security.saml2.provider.service.authentication.Saml2Authentication;
 
-public class AuthenticationConverter implements Converter<OpenSaml4AuthenticationProvider.ResponseToken, Saml2Authentication> {
+public class CustomResponseAuthenticationConverter implements Converter<OpenSaml4AuthenticationProvider.ResponseToken, Saml2Authentication> {
 
 	private Converter<ResponseToken, Saml2Authentication> delegate;
 
-	public AuthenticationConverter() {
+	public CustomResponseAuthenticationConverter() {
 		delegate = OpenSaml4AuthenticationProvider.createDefaultResponseAuthenticationConverter();
-
 	}
 
 	@Override

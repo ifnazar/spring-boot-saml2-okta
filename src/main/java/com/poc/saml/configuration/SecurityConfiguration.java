@@ -14,9 +14,8 @@ import org.springframework.security.saml2.provider.service.authentication.OpenSa
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.intercept.RequestAuthorizationContext;
 
+import com.poc.saml.configuration.authentication.CustomResponseAuthenticationConverter;
 import com.poc.saml.configuration.authorization.CustomAuthorizationManager;
-import com.poc.saml.configuration.converter.AuthenticationConverter;
-
 
 @Configuration
 public class SecurityConfiguration {
@@ -24,8 +23,8 @@ public class SecurityConfiguration {
 	@Bean
 	public AuthenticationManager authenticationManager() {
 		OpenSaml4AuthenticationProvider authenticationProvider = new OpenSaml4AuthenticationProvider();
-		AuthenticationConverter authenticationConverter = new AuthenticationConverter();
-		authenticationProvider.setResponseAuthenticationConverter(authenticationConverter);
+		CustomResponseAuthenticationConverter responseAuthenticationConverter = new CustomResponseAuthenticationConverter();
+		authenticationProvider.setResponseAuthenticationConverter(responseAuthenticationConverter);
 
 		return new ProviderManager(authenticationProvider);
 	}
